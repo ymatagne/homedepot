@@ -1,0 +1,17 @@
+<ngl-form-element label="Type in amount and select currency" class="slds-m-top--small" style="display: inline-block;">
+  <input nglFormControl type="number" placeholder="0.00" [(ngModel)]="converter.amount" name="amount" (change)="calculateNewValues()">
+</ngl-form-element>
+<ngl-form-element class="slds-m-top--small" style="display: inline-block;">
+  <select nglFormControl class="slds-select" [(ngModel)]="converter.fromBase" name="fromBase" (change)="calculateNewValues()">
+    <option *ngFor="let base of bases">{{base}}</option>
+  </select>
+</ngl-form-element>
+<br/>
+<ngl-form-element label="Converted amount:" class="slds-m-top--small" style="display: inline-block;">
+  <input nglFormControl type="number" placeholder="0.00"[(ngModel)]="converter.convertedAmount" name="convertedAmount" (change)="calculateNewValues(true)">
+</ngl-form-element>
+<ngl-form-element class="slds-m-top--small" style="display: inline-block;">
+  <select nglFormControl class="slds-select" [(ngModel)]="converter.toBase" name="toBase" (change)="calculateNewValues(true)">
+    <option *ngFor="let base of bases">{{base}}</option>
+  </select>
+</ngl-form-element>
